@@ -8,9 +8,9 @@ I am making the assumption that as a reader, even though you may be new to React
 
 Also, you have your editor of choice configured the way you like it. I use VS Code (link) because of the integrations with React it has that are easily available for download via VS Code’s extension library built right into the editor.
 
-React (link) is something referred to as a frontend framework (link) which is dev speak for a suite of modules and pre-configured files that provide the developer with an easy, out-of-the-box solution for building user interfaces for web applications or websites. Those modules for React include everything you need to get started with the latest and greatest of the framework’s features, and the latest version of JavaScript. Digging deeper into the important components of what powers React would be a wise step. Things like webpack (link) which bundles your JavaScript files and Babel (link) which compiles those files are key to understanding how React does what it does with your code.
+[React]('https://reactjs.org/') is something referred to as a [frontend framework]('https://www.thebalancecareers.com/what-is-a-front-end-framework-and-why-use-one-2071948') which is dev speak for a suite of modules and pre-configured files that provide the developer with an easy, out-of-the-box solution for building user interfaces for web applications or websites. Those modules for React include everything you need to get started with the latest and greatest of the framework’s features, and the latest version of JavaScript. Digging deeper into the important components of what powers React would be a wise step. Things like [webpack]('https://webpack.js.org/') which bundles your JavaScript files and [Babel]('https://babeljs.io/') which compiles those files are key to understanding how React does what it does with your code.
 
-As for the API I mentioned above, we will be using the Star Wars API (link) - a free, open-source API - which we can make a request to in order to get data about Star Wars movies for our components to render.
+As for the API I mentioned above, we will be using the [Star Wars API]('https://swapi.co/) - a free, open-source API - which we can make a request to in order to get data about Star Wars movies for our components to render.
 
 One last thing to note, is that you will need a version of `node` that is 8.10 or higher. If you need to install a package manager checkout the `nvm` docs [here](https://github.com/nvm-sh/nvm/blob/master/README.md#installation-and-update)
 
@@ -48,7 +48,7 @@ You will notice that the create-react-app command adds a lot of things to the pr
 
 Open the `/src` file. Right off the bat you can go ahead and delete the logo.svg file, as well as the serviceWorker.js file. Note, that if you try to run the application (`yarn start`), it now breaks with a `failed to compile error` which is helpful in showing up what our next step is. We need to remove the imports of the files we just deleted.
 
-Quick note: `yarn start` will initiate the server and launch your application locally. Open a browser and type localhost:3000 in the URL bar to see the application running if the `yarn start` command doesn’t do that automatically.
+Quick note: `yarn start` will initiate the server and launch your application locally. Open a browser and type `localhost:3000` in the URL bar to see the application running if the `yarn start` command doesn’t do that automatically.
 
 Navigate to `src/App.js` and delete the logo import at the top of the file, and replace the JSX code (essentially React’s version of HTML) between the <div> tags with the following code:
 
@@ -86,15 +86,15 @@ import App from './App'
 ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
-Opening the browser once again to localhost:3000 finally displays our very simple Star Wars App! We are ready to develop our app!
+Opening the browser once again to `localhost:3000` finally displays our very simple Star Wars App! We are ready to develop our app!
 
 ### Converting a Functional (Stateless) Component into a Class Component
 
 You can think of components in React as building block for constructing your user interface or UI. React components are JavaScript classes (objects) or functions that programmatically describe how data should be rendered on the page. Some components you build might not even deal with data but all of them should return JSX or React Elements which form your component.
 
-We will get to the important concepts of State and Props in React here in a bit because our application will need to manage data using State but first lets convert our App component in `src/App.js` from a functional (stateless) component into a class component.
+We will get to the important concepts of State and Props in React here in a bit because our application will need to manage data using state but first, lets convert our App component in `src/App.js` from a functional (stateless) component into a class component.
 
-Note: using class components, although not always necessary, allows us to take advantage of a lot of React features making the component more useful.
+Note: using class components, although not always necessary, allows us to take advantage of a lot of React features making the component more useful, such as giving us the ability to instantiate a state object.
 
 The first thing we need to do is import the Component class from the React library at the top of the file, like so:
 
@@ -109,7 +109,7 @@ class App extends Component
 
 Because we destructure the component property from the React library imported at the top of the file, we don’t need to write `React.Component`. So, destructuring can allow us to write cleaner, more readable code.
 
-Something important to know about class components in React is that they must contain the one mandatory render() (https://reactjs.org/docs/react-component.html#render) method. All other methods built into the class are optional. The render() method is where we will house our return statement which returns the JSX for our application. So, your new class component in the App.js file should look like this:
+Something important to know about class components in React is that they must contain the one mandatory [render()]('https://reactjs.org/docs/react-component.html#render') method. All other methods built into the class are optional. The `render()` method is where we will house our return statement which returns the JSX for our application. So, your new class component in the App.js file should look like this:
 
 ```js
 class App extends Component {
@@ -179,7 +179,7 @@ class App extends Component {
 export default App
 ```
 
-Async functions in javaScript return something called a Promise which is beyond the scope of this tutorial but have a look here (link) for more information. Essentially, with this asynchronous function we are making a call to a REST API endpoint (‘https://swapi.co/api/people/’) to get a list of the names of characters in Star Wars movies and storing that data in the response variable. Then, we are converting that data into readable json by calling the json() method on the response variable and storing the output of that method in the data variable. The console.log() is there to allow you to inspect the data with your developer tools in your browser and see what was returned as a result of the API call.
+Async functions in javaScript return something called a Promise which is beyond the scope of this tutorial but have a look [here]('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise') for more information. Essentially, with this asynchronous function we are making a call to a REST API [endpoint](‘https://swapi.co/api/people/’) to get a list of the names of characters in Star Wars movies and storing that data in the response variable. Then, we are converting that data into readable json by calling the json() method on the response variable and storing the output of that method in the data variable. The console.log() is there to allow you to inspect the data with your developer tools in your browser and see what was returned as a result of the API call.
 
 Now, that we have a bit of data to play with we need to store that data in React’s state by creating a state object inside the App class like so:
 
@@ -218,7 +218,9 @@ State in React in the most simplest of terms is an object that stores data the y
 
 So, something you should NOT do is take our array of characters we got back from our API call and do something like this:
 
+```js
 this.state.people.push(data.results)
+```
 
 ### The setState Method
 
@@ -254,6 +256,164 @@ export default App
 
 The `data.results` gives us access to the array of characters we care about and updates the `people` property of our state object with the array of characters from our API call. Pretty cool stuff, huh?
 
-### Displaying The Data
+### Displaying The Characters
 
-The whole reason why we are going through all this trouble is learn about how we
+Now that we have data to work with in our state object, let’s get to work on how we can make a functional component to display the character names. This functional component will receive props - data derived from our state object - and use something called interpolation in order to display that data in the JSX and HTML element we use to construct the component. Finally, the functional component will return JSX that makes up a custom built React Element that we then can pass into our App class component so it can be rendered in the UI.
+
+It is a lot! But let’s get started.
+
+### Building a Functional Component
+
+Our functional (stateless) React component differs in a lot of ways compared to class components, and one important way is the fact that functional components don’t need to worry about state. Keep in mind however, that in new releases of React, there do exist state hooks which allow functional components to update state, providing an important break from traditional React. We won’t get into that in this tutorial as it is beyond the scope of what we are trying to do.
+
+All our functional component worries about is ingesting data and correctly displaying that data in a rendered UI component so that it makes sense to the user. The functional component doesn’t need to carry any additional logic to process, update, or otherwise manipulate data. Nor does it need to worry about making API calls, or doing any CRUD interacts with databases. The goal is to simply display data.
+
+So, to begin, first create a new file in the ‘src’ directory called `DisplayCharacters.js`. The capitalization is important here as it follows the React convention for naming components. Now, insides of `DisplayCharacters.js`, we need to import the React library at the top of the file with the following line of code:
+
+```js
+import React from 'react'
+```
+
+Then, we can begin writing our function which will return a React Element. Let’s stick with ES6 JavaScript syntax for writing our function. So, our new component should look like the following:
+
+```js
+import React from 'react'
+
+const DisplayCharacters = props => {
+  return (
+    <div>
+      <h2>List of Characters</h2>
+    </div>
+  )
+}
+
+export default DisplayCharacters
+```
+
+You will need to export the `DisplayCharacters` function so it can be properly imported in the App.js file. You will notice that the `DisplayCharacters` function also takes props as an argument. Props will be an object that will contain the data we will need to render and we will go over how to cover passing props to the functional component later. For now, we know that the `people` property of the state object that we will pass as props to our functional child component will be an array of objects where each element in that array represents a person or character.
+
+So, programmatically we can use the `.map()` method, to map over that array assigning each element to a `person` variable and then using interpolation to display the correct data in the JSX or HTML elements we use to build the component like so:
+
+```js
+import React from 'react'
+
+const DisplayCharacters = props => {
+  return (
+    <div>
+      <h2>List of Characters</h2>
+      <ul>
+        {props.people.map((person, index) => {
+          return (
+            <li
+              key={index}
+            >{`Name: ${person.name}, birth_year ${person.birth_year}`}</li>
+          )
+        })}
+      </ul>
+    </div>
+  )
+}
+
+export default DisplayCharacters
+```
+
+A neat thing you will notice about React is that you can execute logic in a return statement that is embedded in the HTML you write just as long as it is wrapped in brackets. This code pattern has its advantages but should be used cautiously so as to not complicate your return statements.
+
+Another important thing to note here is that each of the list items in our unordered list has a `key` attribute assigned to the index of each element in our people array. React needs this key attribute for every similar child component that is rendered in a group. The reason is because React needs a way to be able to distinguish the uniqueness of each element so that it can keep track of whether or not the element undergoes some type of manipulation and thus trigger a rerender of the component. You can learn more about it [here](‘https://reactjs.org/docs/lists-and-keys.html’)
+
+Now, we are ready to import this custom child component into our parent App component and pass it the props it needs in order to render the list of characters.
+
+### Passing Props to Child Components
+
+This is how our App.js file now looks with our imported `DisplayCharacters` component.
+
+```js
+import React, { Component } from 'react'
+import './App.css'
+import DisplayCharacters from './DisplayCharacters'
+
+class App extends Component {
+  state = {
+    people: [],
+  }
+
+  async componentDidMount() {
+    let response = await fetch('https://swapi.co/api/people')
+    let data = await response.json()
+
+    this.setState({ people: data.results })
+  }
+
+  render() {
+    return (
+      <div className='App'>
+        <h2>Star Wars App</h2>
+        <DisplayCharacters />
+      </div>
+    )
+  }
+}
+
+export default App
+```
+
+You will notice the custom `DisplayCharacters` component being used directly in the return statement of the App class component. Syntactically it looks like a custom HTML element. This is a React Element, and represents an important and powerful feature of the React framework. It allows you to build custom components and use those components with ease.
+
+However, we need to pass our character data to the `DisplayCharacters` component in order to render the list of characters in our app. To do that, we will add a custom attribute to our React Element that will serve as the mechanism for passing props. Passing props to other components will always follow this code pattern. So, it makes it fairly easy to replicate. Have a look below.
+
+```js
+import React, { Component } from 'react'
+import './App.css'
+import DisplayCharacters from './DisplayCharacters'
+
+class App extends Component {
+  state = {
+    people: [],
+  }
+
+  async componentDidMount() {
+    let response = await fetch('https://swapi.co/api/people')
+    let data = await response.json()
+
+    this.setState({ people: data.results })
+  }
+
+  render() {
+    return (
+      <div className='App'>
+        <h2>Star Wars App</h2>
+        <DisplayCharacters people={this.state.people} />
+      </div>
+    )
+  }
+}
+
+export default App
+```
+
+In the `DisplayCharacters` element we assign it a custom attribute we call `people`. The `people` attribute is then assigned to `this.state.people` giving the attribute access to the data stored in the state object - in other words, our array of characters. This is how our `DisplayCharacters` component receives its data. You can think of this custom attribute as a channel that is connected from the state object in the App class component to the child component, almost as if it were a tube making the data in state continually available to the child component. The connection between the state object and the child component is the custom attribute written onto the React Element in the parent component.
+
+If you now open up your browser you will see the list of Star Wars characters and their birth years. Pretty cool!
+
+### Things We Learned
+
+In finishing up our tutorial, let’s recap things we covered:
+
+[x] How to initiate a create-react-app project
+[x] The difference between stateful class components vs functional (stateless) components
+[x] Component life cycles and the `componentDidMount()` life cycle method
+[x] Asynchronous data calls using async-await with an external REST API
+[x] The concept of state in React applications and how to use the `setState()` method
+[x] The use of props in passing data from parent components to child components
+[x] Dynamically rendering JSX based on the use of the `.map()` method
+
+Wow! A lot was covered! Keep playing with the application! Build more components, fetch different kinds of data. Keep building and experimenting!
+
+I hope this was an enjoyable read and for you to keep digging in checkout some of the following resources:
+
+### Resources
+
+[The React Documentation](‘https://reactjs.org/’)
+[Thinking In React](‘https://reactjs.org/docs/thinking-in-react.html’)
+[React State and Lifecycles](‘https://reactjs.org/docs/state-and-lifecycle.html’)
+[Component Lifecycle Diagram](‘http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/’)
